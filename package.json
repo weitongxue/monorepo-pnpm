@@ -1,0 +1,23 @@
+{
+  "name": "weitongxue-monorepo",
+  "version": "1.0.0",
+  "description": "一个monorepo项目仓库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "author": "weitongxue",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.3.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "release-it": "^14.11.8",
+    "vue-demi": "^0.12.1"
+  }
+}

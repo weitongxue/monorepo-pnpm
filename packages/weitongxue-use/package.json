@@ -1,0 +1,36 @@
+{
+  "name": "weitongxue-use",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/build-cjs-index.js",
+  "module": "dist/build-esm-index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -w -c",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "publish": "release-it",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.31.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "cross-env": "^7.0.3",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-beta.1",
+    "vue": "^2.0.0 || >=3.0.0-rc.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  }
+}
