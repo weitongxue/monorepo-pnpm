@@ -1,4 +1,3 @@
-
 import { ref, UnwrapRef, Ref } from 'vue-demi';
 import { useRouter } from 'vue-router';
 import { get, cloneDeep } from 'lodash-es';
@@ -9,7 +8,6 @@ interface IResponse<T = any> {
   message?: string;
   code?: string;
 }
-
 interface UseListConfig<T = any, P = any> {
   // 是否刷新列表
   isUpdateRouterUrl?: boolean;
@@ -21,13 +19,10 @@ interface UseListConfig<T = any, P = any> {
     /**
      * 请求参数
      */
-    params?: P;
-    pageNumKey?: string;
-    pageSizeKey?: string;
+    params?: P;pageNumKey?:string;pageSizeKey?:string;
     /**
      * 接口响应数据 key
-     */
-    handleParams?: (params: P) => P;
+     */handleParams?: (params: P) => P;
     /**
      * 校验函数返回true 往下执行
      */
@@ -67,7 +62,7 @@ interface IReturns<T, P, U> {
   tableData: Ref<UnwrapRef<T[]>>;
   tableTotal: Ref<number>;
   tableLoading: Ref<boolean>;
-  handleSearch: (pageNum?: number) => any;
+  handleSearch:(pageNum?: number) => any;
   handleReset: () => any;
   handleSizeChange: (pageNum: number) => any;
   handleCurrentChange: (pageNum: number) => any;
@@ -75,8 +70,7 @@ interface IReturns<T, P, U> {
 
 export function useList<T = any, P = any, U = any>(
   config: UseListConfig<T, P>
-): IReturns<T, P, U> {
-  const { params: requestParams = {} } = config.request;
+): IReturns<T, P, U> {const { params: requestParams = {} } = config.request;
   const cacheConfig = cloneDeep(config);
   cacheConfig.response = Object.assign(
     {},
@@ -92,11 +86,8 @@ export function useList<T = any, P = any, U = any>(
     handleParams,
     handleValidate,
     handleCustomReset,
-    resetApi,
-  } = cacheConfig.request;
-  let { api } = cacheConfig.request;
-
-  const { tableDataKey, totalKey, handleResponseData } = cacheConfig.response;
+    resetApi,} = cacheConfig.request;
+    let { api } = cacheConfig.request;const { tableDataKey, totalKey, handleResponseData } = cacheConfig.response;
 
   const updateRouteUrl = (query: any = {}) => {
     const router = useRouter();
@@ -214,3 +205,4 @@ export function useList<T = any, P = any, U = any>(
     handleCurrentChange,
   };
 }
+
