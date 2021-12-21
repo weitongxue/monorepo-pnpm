@@ -8,8 +8,11 @@
       后续会有对应库的文档搭建和jest输出。
 
 
+- eslint检验规则
+      
+      为了规范所有项目使用同一套校验规则，.eslintrc配置文件，我们可以建在根目录下，然后子项目中的.eslintrc配置中，使用extends继承根目录配置。
 
 ### ```weitongxue-use```
-    一个基于vue3.x的hooks库，总结一些工作中常用的hooks，也会借鉴一些VueUse现有hooks的实现。
+      一个基于vue3.x的hooks库，总结一些工作中常用的hooks，也会借鉴一些VueUse现有hooks的实现。
 
 
