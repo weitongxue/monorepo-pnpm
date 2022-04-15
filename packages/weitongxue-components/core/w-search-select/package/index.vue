@@ -41,7 +41,7 @@ import 'element-plus/es/components/select/style/index';
 import 'element-plus/es/components/select/style/css';
 
 export default defineComponent({
-  name: 'TgoSearchInput',
+  name: 'WSearchInput',
   components: {
     ElSelect,
     ElOption,
