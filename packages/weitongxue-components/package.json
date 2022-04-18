@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run register:components && vitepress dev docs",
+    "dev": "npm run register:components && vitepress dev docs && vite",
     "test": "echo \"Error: no test specified\" && exit 1",
     "register:components": "vitepress-rc"
   },
@@ -12,11 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "element-plus": "^2.1.9",
-    "vite": "^2.6.7",
-    "vitepress": "^0.22.3"
+    "vite": "^2.9.5",
+    "vitepress": "^0.22.3",
+    "vitepress-theme-demoblock": "^1.4.2"
   },
   "devDependencies": {
-    "sass": "^1.49.9",
-    "vitepress-theme-demoblock": "^1.4.2"
+    "sass": "^1.49.9"
   }
 }
