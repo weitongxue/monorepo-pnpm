@@ -17,5 +17,3 @@ module.exports = {
     ]
   },
 }
-const a = "a"
-const b = 'b'

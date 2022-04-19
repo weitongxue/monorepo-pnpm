@@ -192,8 +192,9 @@ export default defineComponent({
         }
         if (
           props.modelValue &&
-          !optionList.value.find(v => v.value === props.modelValue)
+          !optionList.value.find(v => v.value === props.modelValue) && !props.multiple
         ) {
+          console.log('aaa');
           handleGetData(props.modelValue, 'valueQuery');
         }
       },
