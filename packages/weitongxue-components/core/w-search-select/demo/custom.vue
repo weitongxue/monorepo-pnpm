@@ -10,7 +10,7 @@ const selectList = ref<IOptionItem[]>([]);
 
 const getLabelByVal = (arr: IOptionItem[], val: string) => {
   const item =
-    (arr.find((it) => String(it.value) === String(val)) as IOptionItem);
+    (arr.find(it => String(it.value) === String(val)) as IOptionItem);
   return item.label || '';
 };
 
@@ -30,7 +30,7 @@ const handleFormat = (res: any, dataKey: string) => {
   return list?.map((item: any) => ({
     label: `${item.userName}（${getLabelByVal(STATE_LIST, item.state)}）`,
     value: item.userCode,
-    currentItem: item,
+    currentItem: item
   }));
 };
 </script>

@@ -4,6 +4,5 @@ import Config from '../demo/config.vue';
 
 export const installComponent = (app: App) => {
   app.component('Basic', Basic);
-  app.component('Config', Config)
-}
-
+  app.component('Config', Config);
+};

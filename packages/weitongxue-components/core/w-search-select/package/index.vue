@@ -1,6 +1,6 @@
 <template>
   <el-select
-    :model-value="modelValue"
+    :modelValue="modelValue"
     :multiple="multiple"
     filterable
     remote
@@ -32,7 +32,7 @@ import {
   PropType,
   onBeforeUnmount,
   watch,
-  onMounted,
+  onMounted
 } from 'vue';
 import { IConfigItem, IOptionItem } from './type';
 import { get, isEqual, debounce } from 'lodash-es';
@@ -44,34 +44,35 @@ export default defineComponent({
   name: 'WSearchInput',
   components: {
     ElSelect,
-    ElOption,
+    ElOption
   },
   props: {
     modelValue: {
       type: [String, Array],
       default: '',
+      required: true
     },
     // 请求方法
     method: {
       type: Function,
-      default: () => {},
+      default: () => {}
     },
     /**
      * 是否在初始化的时候查询数据
      */
     needInitSearch: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否多选
     multiple: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 额外参数
     params: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     /**
      *   配置项：
@@ -84,25 +85,25 @@ export default defineComponent({
      */
     config: {
       type: Object as PropType<IConfigItem>,
-      default: () => {},
+      default: () => {}
     },
     /**
      * 自定义格式化选项显示
      */
     formatFn: {
       type: Function,
-      default: null,
+      default: null
     },
     /**
      * 查询值变化则置空选项
      */
     needInitOptions: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   emits: ['update:modelValue', 'change'],
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     const optionList = ref<IOptionItem[]>([]);
     const defaultConfig = {
       dataKey: 'data',
@@ -110,7 +111,7 @@ export default defineComponent({
       valueKey: 'value',
       keywordQueryKey: 'keyword',
       valueQueryKey: 'keyword',
-      pageSize: 20,
+      pageSize: 20
     };
 
     const config: IConfigItem = Object.assign({}, defaultConfig, props.config);
@@ -118,7 +119,7 @@ export default defineComponent({
     // 请求参数
     const queryParams = ref({
       [config.keywordQueryKey!]: '',
-      pageSize: config.pageSize,
+      pageSize: config.pageSize
     });
 
     const loading = ref(false);
@@ -151,7 +152,7 @@ export default defineComponent({
               ...item,
               label: item[config.labelKey],
               value: item[config.valueKey],
-              currentItem: item,
+              currentItem: item
             }));
           }
         } catch (e) {
@@ -191,13 +192,13 @@ export default defineComponent({
         }
         if (
           props.modelValue &&
-          !optionList.value.find((v) => v.value === props.modelValue)
+          !optionList.value.find(v => v.value === props.modelValue)
         ) {
           handleGetData(props.modelValue, 'valueQuery');
         }
       },
       {
-        immediate: true,
+        immediate: true
       }
     );
 
@@ -215,8 +216,8 @@ export default defineComponent({
       optionList,
       loading,
       remoteMethod,
-      handleChange,
+      handleChange
     };
-  },
+  }
 });
 </script>

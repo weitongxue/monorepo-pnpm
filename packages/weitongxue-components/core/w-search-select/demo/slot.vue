@@ -9,7 +9,7 @@ const selectList = ref<IOptionItem[]>([]);
 
 const getLabelByVal = (arr: IOptionItem[], val: string) => {
   const item =
-    (arr.find((it) => String(it.value) === String(val)) as IOptionItem);
+    (arr.find(it => String(it.value) === String(val)) as IOptionItem);
   return item.label || '';
 };
 

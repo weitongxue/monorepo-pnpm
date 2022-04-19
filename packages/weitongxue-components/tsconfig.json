@@ -12,25 +12,20 @@
     "isolatedModules": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "meta"
-    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
     "lib": [
       "esnext",
       "dom",
-    ]
+    ],
+    "paths": {
+      "@/core/*": [
+        "core/*"
+      ]
+    }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
+    "core/**/*.ts",
+    "core/**/*.tsx",
+    "core/**/*.vue",
   ],
   "exclude": [
     "node_modules"
