@@ -52,7 +52,7 @@ interface UseListConfig<T = any, P = any> {
 
 const defaultResponseConfig = {
   tableDataKey: 'data.list',
-  totalKey: 'data.total',
+  totalKey: 'data.total'
 };
 
 interface IReturns<T, P, U> {
@@ -67,9 +67,10 @@ interface IReturns<T, P, U> {
   handleCurrentChange: (pageNum: number) => any;
 }
 
-export function useList<T = any, P = any, U = any>(
+export function useList<T = any, P = any, U = any> (
   config: UseListConfig<T, P>
-): IReturns<T, P, U> {const { params: requestParams = {} } = config.request;
+): IReturns<T, P, U> {
+  const { params: requestParams = {} } = config.request;
   const cacheConfig = cloneDeep(config);
   cacheConfig.response = Object.assign(
     {},
@@ -85,8 +86,8 @@ export function useList<T = any, P = any, U = any>(
     handleParams,
     handleValidate,
     handleCustomReset,
-    resetApi,} = cacheConfig.request;
-    let { api } = cacheConfig.request;const { tableDataKey, totalKey, handleResponseData } = cacheConfig.response;
+    resetApi } = cacheConfig.request;
+  let { api } = cacheConfig.request; const { tableDataKey, totalKey, handleResponseData } = cacheConfig.response;
 
   const updateRouteUrl = (query: any = {}) => {
     const router = useRouter();
@@ -104,7 +105,7 @@ export function useList<T = any, P = any, U = any>(
     });
     router.replace({
       name: router.currentRoute.value.name!,
-      query,
+      query
     });
   };
 
@@ -201,7 +202,6 @@ export function useList<T = any, P = any, U = any>(
     handleSearch,
     handleReset,
     handleSizeChange,
-    handleCurrentChange,
+    handleCurrentChange
   };
 }
-

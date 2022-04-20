@@ -2,7 +2,8 @@ import resolve from 'rollup-plugin-node-resolve';
 import clear from 'rollup-plugin-clear';
 import typescript from 'rollup-plugin-typescript2';
 import babel from 'rollup-plugin-babel';
-import paj from './package';
+// eslint-disable-next-line import/extensions
+import pak from './package.json';
 
 /**
  * 打包文件都格式：amd – 异步模块定义，用于像RequireJS这样的模块加载器
@@ -17,7 +18,7 @@ const output = formats.map((item) => {
   return {
     file: `dist/build-${item}-index.js`,
     format: item,
-    name: paj.name
+    name: pak.name
   };
 });
 

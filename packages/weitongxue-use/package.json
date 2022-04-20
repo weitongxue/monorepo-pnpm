@@ -6,7 +6,7 @@
   "module": "dist/build-esm-index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -w -c",
-    "build": "cross-env NODE_ENV=production rollup -c",
+    "build": "rollup -c --environment NODE_ENV:production",
     "publish": "release-it",
     "preinstall": "npx only-allow pnpm"
   },
