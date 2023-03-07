@@ -1,6 +1,6 @@
-import WSearchInput from './package/index.vue';
+import searchInput from './package/index.vue';
 import { withInstall } from '../../utils/with-install';
 
-export const TgCascaderPanel = withInstall(WSearchInput);
+export const WSearchInput = withInstall(searchInput);
 export default WSearchInput;
 export * from './package/type';

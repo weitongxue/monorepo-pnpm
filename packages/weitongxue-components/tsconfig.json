@@ -1,16 +1,6 @@
 {
+  "extends": "@weitongxue/tsconfig/client",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "lib": [
       "esnext",

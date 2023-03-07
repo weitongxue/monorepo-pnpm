@@ -1,3 +1,6 @@
 module.exports = {
-  extends: '../../.eslintrc'
+  root: true,
+  extends: [
+    '@weitongxue/eslint-config/typescript',
+  ],
 };

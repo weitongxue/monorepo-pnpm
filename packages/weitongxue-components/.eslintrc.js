@@ -1,4 +1,9 @@
 module.exports = {
   root: true,
-  extends: '../../.eslintrc'
+  extends: [
+    '@weitongxue/eslint-config/typescript',
+  ],
+  rules: {
+    '@typescript-eslint/no-var-requires': 0
+  }
 };

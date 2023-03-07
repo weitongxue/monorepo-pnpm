@@ -273,7 +273,6 @@ module.exports = {
     'require-await': 'off',
     'no-return-assign': 'off',
     'operator-linebreak': ['error', 'before'],
-
     // unicorns
     // Pass error message when throwing errors
     'unicorn/error-message': 'error',

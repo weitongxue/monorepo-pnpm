@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "register:components": "vitepress-rc",
     "build": "rollup -c --environment NODE_ENV:production",
-    "lint": "eslint --ext .js,.vue,.ts ./core"
+    "lint": "eslint --ext .js,.vue,.ts ./core",
+    "preinstall": "npx only-allow pnpm"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,8 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-json": "^4.1.0",
+    "@weitongxue/eslint-config": "workspace:^1.0.0",
+    "@weitongxue/tsconfig": "workspace:^1.0.0",
     "autoprefixer": "^10.4.4",
     "cssnano": "^5.1.7",
     "eslint": "^8.13.0",

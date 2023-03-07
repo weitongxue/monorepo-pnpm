@@ -1,6 +1,6 @@
 {
-  "name": "@weitongxue/eslint",
-  "version": "1.0.3",
+  "name": "@weitongxue/eslint-config",
+  "version": "1.0.1",
   "description": "统一的eslint管理",
   "main": "index.js",
   "files": [

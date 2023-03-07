@@ -1,6 +1,8 @@
-import { ref, UnwrapRef, Ref } from 'vue-demi';
+import type { UnwrapRef, Ref } from 'vue-demi';
+import { ref } from 'vue-demi';
 import { useRouter } from 'vue-router';
 import { get, cloneDeep } from 'lodash-es';
+
 interface IResponse<T = any> {
   data: T;
   successful: boolean;
@@ -18,7 +20,7 @@ interface UseListConfig<T = any, P = any> {
     /**
      * 请求参数
      */
-    params?: P;pageNumKey?:string;pageSizeKey?:string;
+    params?: P;pageNumKey?: string;pageSizeKey?: string;
     /**
      * 接口响应数据 key
      */handleParams?: (params: P) => P;
@@ -52,7 +54,7 @@ interface UseListConfig<T = any, P = any> {
 
 const defaultResponseConfig = {
   tableDataKey: 'data.list',
-  totalKey: 'data.total'
+  totalKey: 'data.total',
 };
 
 interface IReturns<T, P, U> {
@@ -61,21 +63,21 @@ interface IReturns<T, P, U> {
   tableData: Ref<UnwrapRef<T[]>>;
   tableTotal: Ref<number>;
   tableLoading: Ref<boolean>;
-  handleSearch:(pageNum?: number) => any;
+  handleSearch: (pageNum?: number) => any;
   handleReset: () => any;
   handleSizeChange: (pageNum: number) => any;
   handleCurrentChange: (pageNum: number) => any;
 }
 
-export function useList<T = any, P = any, U = any> (
-  config: UseListConfig<T, P>
+export function useList<T = any, P = any, U = any>(
+  config: UseListConfig<T, P>,
 ): IReturns<T, P, U> {
   const { params: requestParams = {} } = config.request;
   const cacheConfig = cloneDeep(config);
   cacheConfig.response = Object.assign(
     {},
     defaultResponseConfig,
-    cacheConfig.response || {}
+    cacheConfig.response || {},
   );
 
   const { isUpdateRouterUrl } = cacheConfig;
@@ -105,7 +107,7 @@ export function useList<T = any, P = any, U = any> (
     });
     router.replace({
       name: router.currentRoute.value.name!,
-      query
+      query,
     });
   };
 
@@ -172,7 +174,7 @@ export function useList<T = any, P = any, U = any> (
     if (handleCustomReset) {
       params.value = handleCustomReset(
         params.value as P,
-        cloneDeep(requestParams) as P
+        cloneDeep(requestParams) as P,
       ) as UnwrapRef<P>;
     } else {
       params.value = cloneDeep(requestParams) as UnwrapRef<P>;
@@ -202,6 +204,6 @@ export function useList<T = any, P = any, U = any> (
     handleSearch,
     handleReset,
     handleSizeChange,
-    handleCurrentChange
+    handleCurrentChange,
   };
 }

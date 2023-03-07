@@ -30,12 +30,18 @@
   const value = ref('');
   const selectList = ref([]);
 
-  const handleQuery = () =>
-    new Promise((resolve) => {
+  const handleQuery = (params) => {
+    // 这里只是演示一下，最终都要换成接口请求
+    const { keyword } = params;
+    const options = res.data.filter(info => info.label === keyword) || []
+    return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(res);
-      }, 1000);
+        resolve({
+          data: options
+        });
+      }, 100);
     });
+  }
 
   const handleChange = (val: string, list: IOptionItem[]) => {
     selectList.value = list;
@@ -414,9 +420,9 @@ slot用法：
       valueKey: 'userCode',
     }"
   >
-    <template #default="{ item }">
+    <template v-slot:selectSlot="{ props }">
       <span
-        >{{ item.label }}（{{ getLabelByVal(STATE_LIST, item.state) }}）</span
+        >{{ props.label }}（{{ getLabelByVal(STATE_LIST, props.state) }}）</span
       >
     </template>
   </w-search-input>

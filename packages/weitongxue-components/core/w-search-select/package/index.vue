@@ -20,7 +20,7 @@
       :disabled="item.disabled"
     >
       <template #default>
-        <slot :item="item"></slot>
+        <slot name="selectSlot" :props="item"></slot>
       </template>
     </el-option>
   </el-select>
@@ -141,6 +141,7 @@ export default defineComponent({
             params[valueQueryKey!] = keyword;
           }
           const res = await props.method(params);
+          console.log(res)
           loading.value = false;
           if (props.formatFn) {
             // 自定义输出模版
@@ -194,7 +195,6 @@ export default defineComponent({
           props.modelValue &&
           !optionList.value.find(v => v.value === props.modelValue) && !props.multiple
         ) {
-          console.log('aaa');
           handleGetData(props.modelValue, 'valueQuery');
         }
       },

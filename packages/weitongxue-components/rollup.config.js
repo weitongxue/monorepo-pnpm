@@ -24,7 +24,7 @@ const output = formats.map((item) => {
   return {
     file: `dist/build-${item}-index.js`,
     format: item,
-    name: pak.name
+    name: pak.name,
   };
 });
 
@@ -38,27 +38,27 @@ export default {
         style: {
           postcssPlugins: [
             autoprefixer(),
-            cssnano()
-          ]
-        }
-      }
+            cssnano(),
+          ],
+        },
+      },
     ),
     babel({
-      exclude: 'node_modules/**' // 只编译我们的源代码
+      exclude: 'node_modules/**', // 只编译我们的源代码
     }),
     // 使用 tsconfig.json 中定义 的 declarationDir
     typescript({
-      useTsconfigDeclarationDir: true
+      useTsconfigDeclarationDir: true,
     }),
     clear([
       {
         targets: ['some directory'],
-        watch: true
-      }
+        watch: true,
+      },
     ]),
     postcss(),
     json(),
-    commonjs()
+    commonjs(),
   ],
-  external: ['vue']
+  external: ['vue'],
 };

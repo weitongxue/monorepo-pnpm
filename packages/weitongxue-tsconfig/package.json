@@ -1,0 +1,17 @@
+{
+  "name": "@weitongxue/tsconfig",
+  "version": "1.0.0",
+  "description": "通用的typescript配置文件",
+  "author": "weitongxue",
+  "license": "MIT",
+  "files": [
+    "web.json",
+    "client.json"
+  ],
+  "peerDependencies": {
+    "typescript": ">=3.9"
+  },
+  "devDependencies": {
+    "@weitongxue/tsconfig": "workspace:^1.0.0"
+  }
+}
