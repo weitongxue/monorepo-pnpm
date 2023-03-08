@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.16.5",
+    "@weitongxue/tsconfig": "workspace:^1.0.0",
     "cross-env": "^7.0.3",
     "vue-demi": "*"
   },

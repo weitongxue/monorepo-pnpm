@@ -1,0 +1,23 @@
+{
+  "extends": "@weitongxue/tsconfig/client",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": [
+      "esnext",
+      "dom",
+    ],
+    "paths": {
+      "@/core/*": [
+        "core/*"
+      ]
+    }
+  },
+  "include": [
+    "core/**/*.ts",
+    "core/**/*.tsx",
+    "core/**/*.vue",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
